@@ -1,3 +1,4 @@
+#include <Debounce.h>
 #include <NewSoftSerial.h>
 #include <nikonIrControl.h>
 #include <TimedAction.h>
@@ -14,6 +15,7 @@ long baudRate = 9600;
 #define encoder0PinB  4
 
 byte buttonPin = 6;
+Debounce debouncer = Debounce( 50 , buttonPin ); 
 
 /* LED setup */
 byte cameraIrPin = 7; // LED connected to digital pin 13

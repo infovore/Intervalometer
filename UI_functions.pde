@@ -41,7 +41,8 @@ void touchControl() {
 }
 
 void checkButtonPush() {
-  buttonState = digitalRead(buttonPin);
+  debouncer.update();
+  buttonState = debouncer.read();
 
   // check if the pushbutton is pressed.
   // if it is, the buttonState is HIGH:

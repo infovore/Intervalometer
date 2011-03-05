@@ -6,15 +6,17 @@ void arm() {
   timedAction.setInterval(startCountInSeconds * 1000);
   timedAction.enable();
   ticker.enable();
+  updateLcd();
 }
 
 void safe() {
   armed = false;
   backlightOn();
-  delay(10);
+  delay(1000);
 
   timedAction.disable();
   ticker.disable();
   goTo(31);
   LCD.print(" ");
+  updateLcd();
 }
