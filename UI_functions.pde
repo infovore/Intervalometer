@@ -40,6 +40,20 @@ void touchControl() {
   }
 }
 
+void checkButtonPush() {
+  buttonState = digitalRead(buttonPin);
+
+  // check if the pushbutton is pressed.
+  // if it is, the buttonState is HIGH:
+  if (buttonState == HIGH) {     
+    if(armed) {
+      safe();
+    } else {
+      arm();
+    }
+  } 
+}
+
 void blankBacklight() {
   if(backlightIsOn) {
     backlightIsOn = false;

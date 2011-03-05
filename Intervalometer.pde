@@ -13,7 +13,7 @@ long baudRate = 9600;
 #define encoder0PinA  2
 #define encoder0PinB  4
 
-byte switchPin = 6;
+byte buttonPin = 6;
 
 /* LED setup */
 byte cameraIrPin = 7; // LED connected to digital pin 13
@@ -29,6 +29,7 @@ int countTime = 0;
 int backlightTimeout = 5; // timeout in seconds for LCD
 boolean backlightIsOn = true;
 int numberToPrint = 0;
+int buttonState = 0;         // variable for reading the pushbutton status
 
 unsigned long millisArmedAt = 0;
 unsigned long millisSecondStartedAt = 0;
@@ -51,9 +52,7 @@ void setup()
 
   attachInterrupt(0, doEncoder, CHANGE);  // encoder pin on interrupt 0 - pin 2
 
-  // turn on pullup for switch
-  pinMode(cameraIrPin, INPUT);
-  digitalWrite(switchPin, HIGH);
+  pinMode(buttonPin, INPUT);
   
   // setup camera pin
   pinMode(cameraIrPin, OUTPUT);
@@ -61,14 +60,13 @@ void setup()
   LCD.begin(baudRate);
 
   lcdSetup();  
-  arm(); // for debug
+//  arm(); // for debug
   updateLcd();
-
 }
 
 void loop()
 { 
-  //    checkButtonPush();
+  checkButtonPush();
   if(armed) {
     timedAction.check();
     ticker.check();
