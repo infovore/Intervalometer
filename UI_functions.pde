@@ -25,9 +25,18 @@ void updateLcd() {
   
   char buffer[12];
   if(isMinutes) {
-    sprintf(buffer,"%d Minutes   ",startCountNumber);   
+    if(startCountNumber == 1) {
+      sprintf(buffer,"%d Minute    ",startCountNumber);   
+    } else {
+      sprintf(buffer,"%d Minutes   ",startCountNumber);   
+    }
+  
   } else {
-    sprintf(buffer,"%d Seconds   ",startCountNumber);   
+    if(startCountNumber ==1) {
+      sprintf(buffer,"%d Second    ",startCountNumber);   
+    } else {
+      sprintf(buffer,"%d Seconds   ",startCountNumber);   
+    }
   }
   LCD.print(buffer);
 }

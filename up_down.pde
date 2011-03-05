@@ -8,7 +8,7 @@ void nudgeUp() {
         startCountNumber++;
       }
     } else {
-      if(startCountNumber == 89) {
+      if(startCountNumber == 90) {
         isMinutes = true;
         startCountNumber = 2;
       } else {
@@ -24,7 +24,7 @@ void nudgeDown() {
     if(isMinutes) {
       if(startCountNumber == 2) {
         isMinutes = false;
-        startCountNumber = 89;
+        startCountNumber = 90;
       } else {
         startCountNumber--;
       }

@@ -3,11 +3,15 @@ void doEncoder(){
     if (digitalRead(encoder0PinB) == LOW) {  // check channel B to see which way
                                              // encoder is turning
       encoder0Pos = encoder0Pos - 1;         // CCW
-      nudgeDown();
+      if(encoder0Pos % 2 == 0) {
+        nudgeUp();
+      }
     } 
     else {
       encoder0Pos = encoder0Pos + 1;         // CW
-      nudgeUp();
+      if(encoder0Pos % 2 == 0) {
+        nudgeDown();
+      }
     }
   }
   else                                        // found a high-to-low on channel A
@@ -15,12 +19,15 @@ void doEncoder(){
     if (digitalRead(encoder0PinB) == LOW) {   // check channel B to see which way
                                               // encoder is turning  
       encoder0Pos = encoder0Pos + 1;          // CW
-      nudgeUp();
+      if(encoder0Pos % 2 == 0) {
+        nudgeDown();
+      }
     } 
     else {
       encoder0Pos = encoder0Pos - 1;          // CCW
-      nudgeDown();
+      if(encoder0Pos % 2 == 0) {
+        nudgeUp();
+      }
     }
-
   }
 }
