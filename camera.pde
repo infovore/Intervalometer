@@ -1,5 +1,6 @@
 void fireCamera() {
-  // camera-ir-code
+  cameraSnap(cameraIrPin);
+  delay(10);
   firing = true;
   goTo(31);
   LCD.print("*");

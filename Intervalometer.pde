@@ -18,7 +18,7 @@ byte buttonPin = 6;
 Debounce debouncer = Debounce( 50 , buttonPin ); 
 
 /* LED setup */
-byte cameraIrPin = 7; // LED connected to digital pin 13
+byte cameraIrPin = 13; // LED connected to digital pin 13
 
 /* variables setup */
 boolean armed = false;
