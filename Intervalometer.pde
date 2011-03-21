@@ -24,18 +24,11 @@ byte cameraIrPin = 13; // LED connected to digital pin 13
 boolean armed = false;
 boolean isMinutes = false;
 boolean firing = false;
-unsigned long lastTouch = 0;
 int startCountNumber = 5;
 int startCountInSeconds = 5;
 int countTime = 0;
-int backlightTimeout = 5; // timeout in seconds for LCD
-boolean backlightIsOn = true;
 int numberToPrint = 0;
 int buttonState = 0;         // variable for reading the pushbutton status
-
-unsigned long millisArmedAt = 0;
-unsigned long millisSecondStartedAt = 0;
-int secondsRemainingInInterval = 0;
 
 int encoder0Pos = 0;
 

@@ -11,8 +11,6 @@ char* stateString() {
 void lcdSetup() {
   clearLCD();
   backlightOn();
-  backlightIsOn = true;
-  lastTouch = millis();  
   delay(10);
   goTo(0);
   LCD.print("Interval");
@@ -41,14 +39,6 @@ void updateLcd() {
   LCD.print(buffer);
 }
 
-void touchControl() {
-  if(backlightIsOn) {
-  } else {
-    backlightOn();
-    backlightIsOn = true;
-  }
-}
-
 void checkButtonPush() {
   debouncer.update();
   buttonState = debouncer.read();
@@ -62,14 +52,6 @@ void checkButtonPush() {
       arm();
     }
   } 
-}
-
-void blankBacklight() {
-  if(backlightIsOn) {
-    backlightIsOn = false;
-    backlightOff();
-    delay(10);
-  }
 }
 
 void tickAnimation() {

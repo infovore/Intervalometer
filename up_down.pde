@@ -1,6 +1,5 @@
 void nudgeUp() {
-//  if(!armed) {
-  touchControl();
+ if(!armed) {
     if(isMinutes) {
       if(startCountNumber == 15) {
         // do nothing, that's our maximum
@@ -15,12 +14,11 @@ void nudgeUp() {
         startCountNumber++;
       }
     }
-//  }
+ }
 }
 
 void nudgeDown() {
-//  if(!armed) {
-  touchControl();
+ if(!armed) {
     if(isMinutes) {
       if(startCountNumber == 2) {
         isMinutes = false;
@@ -35,7 +33,7 @@ void nudgeDown() {
         startCountNumber--;
       }
     }
-//  }
+ }
 }
 
 void recalculateStartCountInSeconds() {
