@@ -12,11 +12,11 @@ void arm() {
 void safe() {
   armed = false;
   backlightOn();
-  delay(1000);
-
+  delay(10);
   timedAction.disable();
   ticker.disable();
   goTo(31);
   LCD.print(" ");
   updateLcd();
+  delay(1000);
 }
