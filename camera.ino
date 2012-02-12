@@ -1,5 +1,5 @@
 void fireCamera() {
-  cameraSnap(cameraIrPin);
+  nikon.shutterNow();
   delay(10);
   firing = true;
   goTo(31);

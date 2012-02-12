@@ -1,12 +1,12 @@
 #include <Debounce.h>
-#include <NewSoftSerial.h>
-#include <nikonIrControl.h>
+#include <SoftwareSerial.h>
+#include <multiCameraIrControl.h>
 #include <TimedAction.h>
 
 /* pin setups */
 
 /* serial configuration */
-NewSoftSerial LCD=NewSoftSerial(2,1); //LCD Rx -> Pin 1
+SoftwareSerial LCD(2,1); //LCD Rx -> Pin 1
 long baudRate = 9600;
 
 /* Encoder setup */
@@ -17,8 +17,9 @@ long baudRate = 9600;
 byte buttonPin = 6;
 Debounce debouncer = Debounce( 50 , buttonPin ); 
 
-/* LED setup */
-byte cameraIrPin = 13; // LED connected to digital pin 13
+/* camera setup */
+
+Nikon nikon(13);
 
 /* variables setup */
 boolean armed = false;
@@ -49,8 +50,8 @@ void setup()
 
   pinMode(buttonPin, INPUT);
   
-  // setup camera pin
-  pinMode(cameraIrPin, OUTPUT);
+  // setup camera pin (not needed given we have nikon library
+//  pinMode(cameraIrPin, OUTPUT);
   
   LCD.begin(baudRate);
 
