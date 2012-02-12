@@ -1,4 +1,4 @@
-#include <Debounce.h>
+#include <Bounce.h>
 #include <SoftwareSerial.h>
 #include <multiCameraIrControl.h>
 #include <TimedAction.h>
@@ -15,7 +15,7 @@ long baudRate = 9600;
 #define encoder0PinB  4
 
 byte buttonPin = 6;
-Debounce debouncer = Debounce( 50 , buttonPin ); 
+Bounce debouncer = Bounce( buttonPin, 50 ); 
 
 /* camera setup */
 
