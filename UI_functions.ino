@@ -9,17 +9,16 @@ char* stateString() {
 }
 
 void lcdSetup() {
-  clearLCD();
-  backlightOn();
-  delay(10);
-  goTo(0);
-  LCD.print("Interval");
+  lcd.clear();
+  lcd.setBrightness(30);
+  lcd.home();
+  lcd.print("Interval");
 }
 
 void updateLcd() {
-  goTo(12);
-  LCD.print(stateString());
-  selectLineTwo();
+  lcd.setCursor(1,13);
+  lcd.print(stateString());
+  lcd.setCursor(2,1);
   
   char buffer[12];
   if(isMinutes) {
@@ -36,7 +35,7 @@ void updateLcd() {
       sprintf(buffer,"%d Seconds   ",startCountNumber);   
     }
   }
-  LCD.print(buffer);
+  lcd.print(buffer);
 }
 
 void checkButtonPush() {
@@ -56,11 +55,11 @@ void checkButtonPush() {
 
 void tickAnimation() {
   if(armed && !firing) {
-    goTo(31);
-    LCD.print(".");
+    lcd.setCursor(2,16);
+    lcd.print(".");
     delay(500);
-    goTo(31);
-    LCD.print(" ");
+    lcd.setCursor(2,16);
+    lcd.print(" ");
     delay(500);
   }
 }

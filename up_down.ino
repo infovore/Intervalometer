@@ -4,14 +4,14 @@ void nudgeUp() {
       if(startCountNumber == 15) {
         // do nothing, that's our maximum
       } else {
-        startCountNumber++;
+        startCountNumber += 1;
       }
     } else {
       if(startCountNumber == 90) {
         isMinutes = true;
         startCountNumber = 2;
       } else {
-        startCountNumber++;
+        startCountNumber += 1;
       }
     }
  }
@@ -24,13 +24,13 @@ void nudgeDown() {
         isMinutes = false;
         startCountNumber = 90;
       } else {
-        startCountNumber--;
+        startCountNumber -= 1;
       }
     } else {
       if(startCountNumber == 1) {
         // do nothing, can't go lower
       } else {
-        startCountNumber--;
+        startCountNumber -= 1;
       }
     }
  }
@@ -42,4 +42,6 @@ void recalculateStartCountInSeconds() {
   } else {
     startCountInSeconds = startCountNumber;
   }
+//  Serial.println("start count in seconds is now");
+//  Serial.println(startCountInSeconds);
 }

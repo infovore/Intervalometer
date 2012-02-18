@@ -1,7 +1,6 @@
 void arm() {
   armed = true;
-  backlightOff();
-  delay(10);
+  lcd.setBrightness(0);
   recalculateStartCountInSeconds();
   timedAction.setInterval(startCountInSeconds * 1000);
   timedAction.enable();
@@ -11,12 +10,11 @@ void arm() {
 
 void safe() {
   armed = false;
-  backlightOn();
-  delay(10);
+  lcd.setBrightness(30);
   timedAction.disable();
   ticker.disable();
-  goTo(31);
-  LCD.print(" ");
+  lcd.setCursor(2,16);
+  lcd.print(" ");
   updateLcd();
   delay(1000);
 }

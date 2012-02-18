@@ -2,11 +2,11 @@ void fireCamera() {
   nikon.shutterNow();
   delay(10);
   firing = true;
-  goTo(31);
-  LCD.print("*");
+  lcd.setCursor(2,16);
+  lcd.print("*");
   delay(500);
-  goTo(31);
-  LCD.print(" ");
+  lcd.setCursor(2,16);
+  lcd.print(" ");
   delay(500);
   firing = false;
 }

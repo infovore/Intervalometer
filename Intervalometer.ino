@@ -1,13 +1,13 @@
 #include <Bounce.h>
 #include <SoftwareSerial.h>
+#include <serLCD.h>
 #include <multiCameraIrControl.h>
 #include <TimedAction.h>
 
 /* pin setups */
 
 /* serial configuration */
-SoftwareSerial LCD(2,1); //LCD Rx -> Pin 1
-long baudRate = 9600;
+serLCD lcd(5);
 
 /* Encoder setup */
 
@@ -25,8 +25,8 @@ Nikon nikon(13);
 boolean armed = false;
 boolean isMinutes = false;
 boolean firing = false;
-int startCountNumber = 5;
-int startCountInSeconds = 5;
+int startCountNumber = 10;
+int startCountInSeconds = 10;
 int countTime = 0;
 int numberToPrint = 0;
 int buttonState = 0;         // variable for reading the pushbutton status
@@ -38,6 +38,7 @@ TimedAction ticker = TimedAction(1000,tickAnimation);
 
 void setup()
 {
+  Serial.begin(9600);
   countTime = startCountInSeconds;
   
   // Turn on pullup resistors for encoder
@@ -48,12 +49,11 @@ void setup()
 
   attachInterrupt(0, doEncoder, CHANGE);  // encoder pin on interrupt 0 - pin 2
 
-  pinMode(buttonPin, INPUT);
+//  pinMode(buttonPin, INPUT);
   
   // setup camera pin (not needed given we have nikon library
 //  pinMode(cameraIrPin, OUTPUT);
   
-  LCD.begin(baudRate);
 
   lcdSetup();  
 //  arm(); // for debug
@@ -62,7 +62,7 @@ void setup()
 
 void loop()
 { 
-  checkButtonPush();
+//  checkButtonPush();
   if(armed) {
     timedAction.check();
     ticker.check();
