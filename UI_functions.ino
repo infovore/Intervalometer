@@ -10,6 +10,7 @@ char* stateString() {
 
 void lcdSetup() {
   lcd.clear();
+  delay(50);
   lcd.setBrightness(30);
   lcd.home();
   lcd.print("Interval");
