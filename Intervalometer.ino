@@ -49,12 +49,11 @@ void setup()
 
   attachInterrupt(0, doEncoder, CHANGE);  // encoder pin on interrupt 0 - pin 2
 
-//  pinMode(buttonPin, INPUT);
+  pinMode(buttonPin, INPUT);
   
   // setup camera pin (not needed given we have nikon library
 //  pinMode(cameraIrPin, OUTPUT);
   
-
   lcdSetup();  
 //  arm(); // for debug
   updateLcd();
@@ -62,7 +61,7 @@ void setup()
 
 void loop()
 { 
-//  checkButtonPush();
+  checkButtonPush();
   if(armed) {
     timedAction.check();
     ticker.check();
