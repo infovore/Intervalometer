@@ -12,7 +12,7 @@ serLCD lcd(5);
 /* Encoder setup */
 
 #define encoder0PinA  2
-#define encoder0PinB  4
+#define encoder0PinB  3
 
 byte buttonPin = 10;
 Bounce debouncer = Bounce( buttonPin, 50 ); 
