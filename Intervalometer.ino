@@ -14,7 +14,7 @@ serLCD lcd(5);
 #define encoder0PinA  2
 #define encoder0PinB  4
 
-byte buttonPin = 6;
+byte buttonPin = 10;
 Bounce debouncer = Bounce( buttonPin, 50 ); 
 
 /* camera setup */
@@ -50,9 +50,6 @@ void setup()
   attachInterrupt(0, doEncoder, CHANGE);  // encoder pin on interrupt 0 - pin 2
 
   pinMode(buttonPin, INPUT);
-  
-  // setup camera pin (not needed given we have nikon library
-//  pinMode(cameraIrPin, OUTPUT);
   
   lcdSetup();  
 //  arm(); // for debug
