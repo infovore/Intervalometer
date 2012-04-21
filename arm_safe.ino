@@ -1,6 +1,6 @@
 void arm() {
   armed = true;
-  lcd.setBrightness(0);
+  lcd.setBrightness(1);
   recalculateStartCountInSeconds();
   timedAction.setInterval(startCountInSeconds * 1000);
   timedAction.enable();
