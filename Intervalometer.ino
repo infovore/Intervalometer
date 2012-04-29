@@ -7,7 +7,7 @@
 /* pin setups */
 
 /* serial configuration */
-serLCD lcd(5);
+serLCD lcd(4);
 
 /* Encoder setup */
 
