@@ -3,6 +3,8 @@ Intervalometer
 
 This is code for an Arduino-based Intervalometer, suitable for use with any Nikon camera compatible with the ML-L3 remote control.
 
+Thanks to the multicameraIrControl library, it should be easily ported to other cameras supported by the library.
+
 Compatibility
 -------------
 
@@ -23,23 +25,25 @@ Compatible with the following Nikon cameras:
 Requirements
 ------------
 
-Written in Arduino v22. 
+Written in Arduino 1.0. 
 
 Libraries used:
 
-* Debounce (http://www.arduino.cc/playground/Code/Debounce)
+* Bounce (http://arduino.cc/playground/Code/Bounce)
 * NewSoftSerial (http://arduiniana.org/libraries/newsoftserial/)
 * TimedAction (http://www.arduino.cc/playground/Code/TimedAction)
-* nikonIrControl (http://www.vonroth.com/Arduino/NikonIrControl/)
+* multicameraIrControl (http://sebastian.setz.name/arduino/my-libraries/multi-camera-ir-control/)
 
 Hardware
 --------
 
+The software has been tested on both an Arduino Uno and Arduino Pro Mini (with an ATMega328 running at 5V).
+
 The circuit attached consists of:
 
-* a 16x2 LCD with a serial interface, attached to Arduino pin 1
-* a quadrature encoder, with legs A and B attached to Arduino pins 2 and 4
-* a push-to-make switch with pulldown resistor attached to pin 6 (in this case, a push-switch inside the quadrature encoder)
+* a 16x2 LCD with a serial interface, attached to Arduino pin 4
+* a quadrature encoder, with legs A and B attached to Arduino pins 2 and 3
+* a push-to-make switch with pulldown resistor attached to pin 10 (in this case, a push-switch inside the quadrature encoder)
 * an infrared LED on pin 13
 
 Usage
